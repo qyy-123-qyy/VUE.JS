@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+       <p v-text="news"></p>
+       <p v-html="news"></p>
+    </div>
+    <script>
+     let vue=new Vue({
+         el:"#box",
+         data:{
+             news:"<h1>就是皇后，有女舜华，那就是直路</h1>"
+         }
+     })
+
+    </script>
+</body>
+</html>

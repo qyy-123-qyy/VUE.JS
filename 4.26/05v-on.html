@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+          <input type="button" value="点击" v-on:click="btn">
+          <input type="button" value="点击" @click="change">
+          <input type="button" value="点击一" @click="say('running man')">
+          <input type="button" value="点击二" @click.stop="doThis">
+          <input type="button" value="按下" @click.enter="onEnter">
+          <input type="button" value="按下抬起" @r="mousedown:doThisdown">
+
+    </div>
+    <script>
+       let vue=new Vue({
+           el:"#box",
+           data:{
+              
+
+           },
+           methods:{  //方法
+              change(){  //函数
+                 alert(11)
+              },
+              btn(){
+                  alert("mamamoo")
+              },
+              say(aa){
+                alert(aa)
+              },
+              doThis(){
+                    alert("阻止冒泡")
+              },
+              onEnter(){
+                  alert("我是enter键")
+              },
+              doThisdown(){
+                  console.log("鼠标按下")
+              },
+              doThisup(){
+                  console.log("鼠标抬起")
+              },
+           }
+       }) 
+    </script>
+</body>
+</html>

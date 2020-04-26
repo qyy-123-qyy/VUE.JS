@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+          <input type="button" value="点击" v-on:click="change">
+          <div style="width: 200px; height:200px; background-color:plum;" v-show="show"></div>
+    </div>
+    <script>
+       let vue=new Vue({
+           el:"#box",
+           data:{
+               show:true,
+
+           },
+           methods:{  //方法
+              change(){  //函数
+                  this.show=!this.show//获取用this，在script中
+              }
+           }
+       }) 
+    </script>
+</body>
+</html>

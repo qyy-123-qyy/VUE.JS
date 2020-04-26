@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+      <ul v-for="k in poem">
+        <li>{{k}}</li>
+      </ul>
+      <!-- 在做项目中v-for会报错，解决办法 -->
+      <ul v-for="(k,x) in poem" :key="x">
+        <li>{{k}}</li>
+      </ul>
+    </div>
+    <script>
+     let vue=new Vue({
+         el:"#box",
+         data:{
+            poem:["锄禾日当午","汗滴禾下土","谁知盘中餐","粒粒皆辛苦"]
+         }
+     })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+       <!-- 组件 -->
+        <hello>
+            <div>mamamoo</div>
+            <div>李弘基</div>
+        </hello> 
+    </div>
+     <template id="content">
+        <div>
+        <h2>开始部分</h2>
+        <slot></slot>
+         <h2>结束部分</h2>
+        </div>
+     </template>
+   
+    <script>
+     let vue=new Vue({
+         el:"#box",
+         data:{
+           massage:"running man",
+         },
+         components:{ //组件
+            "hello":{ //组件名
+                 template:"#content"//模板
+             }
+         }
+     })
+
+    </script>
+</body>
+</html>

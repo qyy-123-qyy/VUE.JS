@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+      <hello>
+        <div slot="one">我替换slot第一个位置</div>
+        <div slot="two">我替换slot第二个位置</div>
+        <div>我替换slot第三个位置</div>
+        <h4>哈哈</h4>
+      </hello>
+    </div>
+    <!-- 第一种 -->
+    <!-- <template id="content">
+    <div>
+        <span>首页</span>
+        <slot name="two"><h3>我是第二个位置</h3></slot>
+        <slot name="one"><h3>我是第一个位置</h3></slot>
+        <slot name="three"><h3>我是第三个位置</h3></slot>
+     </div>
+   </template> -->
+    <script>
+    Vue.component("hello",{//表示组件名称
+       //第二种
+        template:`
+        <div>
+           <span>首页</span>
+           <slot name="two"><h3>我是第二个位置</h3></slot>
+           <slot name="one"><h3>我是第一个位置</h3></slot>
+           <slot name="three"><h3>我是第三个位置</h3></slot>
+        </div>
+             `
+       //第一种 // template:"#content"
+    })
+    new Vue({
+        el:"#box"
+    })
+    </script>
+   
+    <script type="x-template" id="content"> 
+        <div>
+            <span>首页</span>
+            <slot name="two"><h3>我是第二个位置</h3></slot>
+            <slot name="one"><h3>我是第一个位置</h3></slot>
+            <slot name="three"><h3>我是第三个位置</h3></slot>
+         </div>
+    </script>
+</body>
+</html>
