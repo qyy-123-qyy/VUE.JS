@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <script src="../js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- prop:主要作用是传入数据的时候对传入的值进行判断 -->
+<div id="box">
+    <hello-world :title="proplist.title" :nums="proplist.nums" :callback="55" :is-likes="proplist.isLikes" :more-apple="proplist.moreApple"></hello-world>
+</div>
+<template id="content">
+    <div>
+        <h2>{{title}}</h2>
+        <h2>{{nums}}</h2>
+        <h2>{{isLikes}}</h2>
+        <h2>{{moreApple}}</h2>
+        <h2>{{obj}}</h2>
+        <h2>{{calllback}}</h2>
+    </div>
+</template>
+<script>
+    Vue.component("helloWorld",{
+        props:{
+            title:String,
+            nums:Number,
+            isLikes:Boolean,
+            moreApple:Array,
+            obj:Object,
+            calllback:{
+                validator:function(val){
+                    return val;
+                }
+            }
+        },
+        template:"#content",
+    })
+let vue=new Vue({
+    el:"#box",
+    data:{
+      proplist:{
+          title:"今天星期一",
+          nums:100,
+          isLikes:true,
+          moreApple:["刘在石","金钟国","宋智孝","HAHA"],
+          obj:{
+              a:123
+          }
+      }
+    }
+})
+</script>
+</body>
+</html>

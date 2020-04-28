@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <script src="../js/vue.js"></script>
+    <title>Document</title>
+    <style>
+    .a{
+        
+        font-size: 32px
+    }
+    .b{
+        color:pink;
+    }
+    </style>
+</head>
+<body>
+<div id="box">
+<a href="# " class="a" :class="{b:addclass}">hello world</a>
+</div>
+
+<script>
+let vue=new Vue({
+    el:"#box",
+    data:{
+       addclass:true
+    }
+})
+</script>
+</body>
+</html>

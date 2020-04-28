@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <script src="../js/vue.js"></script>
+   <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <title>Document</title>
+    <style>
+    li{
+        list-style: none;
+    }
+    </style>
+</head>
+<body>
+<div id="box">
+     <input type="button" value="获取数据" @click="getdata()"> 
+     <ul class="box">
+         <li v-for="(item,index) in datalist">
+             <h3>{{item.date}}</h3>
+             <!-- <img src="{{item..copyright}}" alt=""> -->
+
+         </li>
+    </ul>
+</div>
+
+<script>
+new Vue({
+    el:"#box",
+    data:{
+        datalist:[]
+    },
+    methods:{
+        getdata(){
+          /*  $.ajax({
+                type:"get",
+                url:"",
+                async:true,
+                success:function(res){
+                    console.log(res)
+                }
+            })
+            */
+            //第一种
+         /*    let formdata=new FormData();//post(和get都可以)
+            formdata.append("showapi_appid","170059")
+            formdata.append("showapi_sign","61c4d86a489949b0af1a3cee8f03398a")//参数，有几个写几个
+            axios({
+                method:"post",
+                url:"http://route.showapi.com/1287-1",
+                responseType:"json",
+                data:formdata
+            }).then(res=>{
+                console.log(res);
+            }) */
+
+            //第二种，一般都是用这种
+            axios.get("http://route.showapi.com/1287-1",{
+                params:{//参数
+                showapi_appid:"170059",
+                showapi_sign:"61c4d86a489949b0af1a3cee8f03398a"
+                }
+            }).then(res=>{
+                console.log(res);
+                this.datalist=res.data.showapi_res_body.data;
+                console.log(this.datalist);
+            })
+        }
+    }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <script src="../js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="box">
+   <h2>{{aa}}</h2>
+   <h2>{{bb}}</h2>
+          
+</div>
+
+<script>
+let vue=new Vue({
+    el:"#box",
+    data:{
+         aa:111,
+         bb:222,
+    }
+})
+//$watch 监听 第一个值对象，数组，第二个值回调函数
+vue.$watch("aa",function(){ //监听aa是否发生变化
+  alert("aa值发生了改变");
+  this.bb=this.aa+12
+})
+document.onclick=function(){
+    vue.aa=1234;
+}
+</script>
+</body>
+</html>
