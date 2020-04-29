@@ -21,6 +21,7 @@ export default {
     data(){
         return{
            aa:"",
+           bb:"",
            info:"我是page页面",
            //父向子传值      
             peoplelist:[
@@ -49,6 +50,18 @@ export default {
     },
     components:{
         top,
+    },
+    creatad(){ 
+             //path传值获取路径参数的值
+            /* this.bb=this.$route.query.info;
+            console.log(this.bb) */
+            
+            //name传值比较安全，传值获取路径参数的值
+            console.log(this.$route);
+            this.aa=this.$route.params.info;
+            console.log(this.aa)
+           
+          
     },
     methods:{
         getdata(el){//el事件传过来的内容

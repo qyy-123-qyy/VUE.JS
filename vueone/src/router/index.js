@@ -4,6 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import page from '@/components/page'
 import work from '@/components/work'
 import first from '@/components/first'
+import datalist from '@/components/datalist'
+import sort from '@/components/sort'
 
 const User={
   template:`
@@ -56,6 +58,11 @@ export default new Router({
       component:work
     },
     {
+      path:'/sort',
+      name:'sort',
+      component:sort
+    },
+    {
       path:'/first/:id',
       name:'first',
       component:first,
@@ -92,5 +99,10 @@ export default new Router({
     }
   }
  } */
+ {
+  path:'/datalist',
+  name:'datalist',
+  component:datalist,
+ }
 ]
 })

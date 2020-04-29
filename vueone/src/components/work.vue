@@ -18,7 +18,15 @@ export default {
     },
     methods:{
         go(){
-            this.$router.push("/page?info="+this.name);
+            //this.$router.push("/page?info="+this.name);//path传值
+            
+            //name传值
+            this.$router.push({
+                name:"page",
+                params:{
+                    info:this.name
+                }
+            })
         }
     }
 }

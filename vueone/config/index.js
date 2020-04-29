@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api':{
+        target:'http://www.wumeili.top',//需要代替的协议域名
+        //secure:false,//如果协议是https需要配置这个参数
+        changeOrigin:true,//是否跨域，true为是
+        pathRewrite:{
+          '^/api':'http://www.wumeili.top',
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
